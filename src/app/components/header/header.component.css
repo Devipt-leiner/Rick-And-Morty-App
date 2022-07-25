@@ -34,4 +34,5 @@ i {
 
 i:hover {
   color: rgb(214, 214, 214);
+  transform: scale(1.08);
 }
