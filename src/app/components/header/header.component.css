@@ -2,10 +2,12 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: auto;
+  position: fixed;
   padding: 10px;
   background-color: var(--primary-color);
   width: 100%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  z-index: 100;
 }
 
 .start {
@@ -26,13 +28,14 @@ header {
   margin-right: 10px;
 }
 
-i {
+a {
   cursor: pointer;
   transition: 300ms;
   margin-right: 5px;
+  color: white;
 }
 
-i:hover {
-  color: rgb(214, 214, 214);
+a:hover {
+  color: rgb(47, 47, 47);
   transform: scale(1.08);
 }

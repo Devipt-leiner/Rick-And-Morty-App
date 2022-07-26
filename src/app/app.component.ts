@@ -3,7 +3,6 @@ import { MenuItem } from 'primeng/api';
 import { Character } from './core/interfaces/character.interface';
 import { CharacterService } from './core/services/character.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,13 +14,19 @@ export class AppComponent {
   characters: Character[] = [];
   character!: Character;
   items!: MenuItem[];
+  loading = [false, false, false, false];
   notCharacters: boolean = true;
   visibleSidebar!: boolean;
 
   constructor(private characterService: CharacterService) {}
 
   ngOnInit() {
-    this.characterService.customCharacter.subscribe(value => {});
+    this.characterService.customCharacter.subscribe((value) => {});
+  }
+
+  load(index: any) {
+    this.loading[index] = true;
+    setTimeout(() => (this.loading[index] = false), 1000);
   }
 
   updateHistory(character: Character) {

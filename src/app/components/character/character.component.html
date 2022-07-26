@@ -3,7 +3,7 @@
 </div>
 <main *ngIf="!loading" class="grid">
   <p-image
-    class="col-12 lg:col-fixed animate__animated animate__fadeInLeft"
+    class="sm:col-12 lg:col-fixed mb-4"
     style="width: 400px"
     [src]="character.image"
     alt="Image"
@@ -11,8 +11,8 @@
     [preview]="true"
   ></p-image>
 
-  <section class="sm:col-12 lg:col-8 animate__animated animate__fadeInLeft">
-    <header class="pl-2 pr-2 pt-2">
+  <section class="sm:col-12 lg:col-8">
+    <header class="pl-2 pr-2 pt-3">
       <strong id="name">{{ character.name }}</strong>
       <pre>CHARACTER ID: {{ character.id }}</pre>
     </header>
