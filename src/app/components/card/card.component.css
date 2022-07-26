@@ -1,0 +1,106 @@
+.card {
+  width: 190px;
+  height: 254px;
+  border-radius: 1em;
+  padding: 1.9rem;
+  background: #ffffff;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-transition: 0.4s ease-out;
+  transition: 0.4s ease-out;
+  -webkit-box-shadow: 0px 7px 20px rgba(43, 8, 37, 0.2);
+          box-shadow: 0px 7px 20px rgba(43, 8, 37, 0.2);
+ }
+
+ .card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+ }
+
+ .card-info {
+  position: relative;
+  z-index: 3;
+  color: #f5f5f5;
+  opacity: 0;
+  -webkit-transform: translateY(20%);
+      -ms-transform: translateY(20%);
+          transform: translateY(20%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+ }
+
+ /*Text*/
+ .text-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+ }
+
+ .text-body {
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin: 5px 0 15px 0;
+ }
+
+ /*Button*/
+ .card-button {
+  padding: 0.6rem;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background: #ffffff;
+  color: white;
+  font-weight: bold;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+ }
+
+ /*Image*/
+ .card-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+  background: linear-gradient(to bottom, #ffffff, #ffffff);
+ }
+
+ /*Hover*/
+ .card:hover {
+  -webkit-transform: translateY(5%);
+      -ms-transform: translateY(5%);
+          transform: translateY(5%);
+ }
+
+ .card:hover:before {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.4);
+
+ }
+
+ .card:hover .card-info {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+          color: black;
+ }
+
+ .card-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+  color: #f5f5f5;
+ }

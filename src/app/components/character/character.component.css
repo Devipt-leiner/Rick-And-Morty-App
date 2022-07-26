@@ -19,10 +19,16 @@ section {
   .img {
     width: 100px;
   }
-}
 
-@media screen and (min-width: 768px) {
-  .img {
-    width: 350px;
+  #span {
+    font-weight: 800;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
 }

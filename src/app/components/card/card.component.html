@@ -1,0 +1,11 @@
+<div class="grid gap-5 justify-content-center">
+  <div *ngFor="let character of characters" class="card">
+    <div class="card-img flex justify-content-center">
+      <img [src]="character.image" width="190" alt="">
+    </div>
+      <div class="card-info">
+        <p class="text-title">{{ character.name }}</p>
+        <p class="text-body">{{ character.origin.name }}</p>
+      </div>
+    </div>
+</div>

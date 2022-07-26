@@ -1,9 +1,40 @@
-<div *ngIf="loading" class="flex align-content-center align-items-center">
+<main *ngIf="notCharacter" class="grid p-3">
+  <div class="flex justify-content-center align-items-center flex-column col-12">
+    <span id="span">No se ha cargado ningún personaje</span>
+    <br />
+    <br />
+    <app-generate-button (onClick)="getCharacter()"></app-generate-button>
+  </div>
+</main>
+
+<span class="flex justify-content-center" *ngIf="loading && !notCharacter">
   <app-loading></app-loading>
-</div>
-<main *ngIf="!loading" class="grid">
-  <p-image
-    class="sm:col-12 lg:col-fixed mb-4"
+</span>
+
+<main *ngIf="!notCharacter" class="grid p-3">
+  <div class="col-12">
+    <button *ngIf="!loading"
+      type="button"
+      pButton
+      icon="pi pi-history"
+      label="Historial"
+      (click)="visibleSidebar = true"
+    ></button>
+    <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+      <h3>Historial de personajes</h3>
+      <button
+        *ngFor="let characterHistory of charactersHistory"
+        pButton
+        pRipple
+        type="button"
+        [label]="character.name"
+        class="p-button-outlined mr-1 mb-1"
+        (click)="search(character)"
+      ></button>
+    </p-sidebar>
+  </div>
+  <p-image *ngIf="!loading"
+    class="sm:col-12 lg:col-fixed mb-4 ml-2"
     style="width: 400px"
     [src]="character.image"
     alt="Image"
@@ -11,46 +42,53 @@
     [preview]="true"
   ></p-image>
 
-  <section class="sm:col-12 lg:col-8">
+  <section *ngIf="!loading" class="sm:col-12 lg:col-8">
     <header class="pl-2 pr-2 pt-3">
       <strong id="name">{{ character.name }}</strong>
       <pre>CHARACTER ID: {{ character.id }}</pre>
     </header>
 
-    <hr>
+    <hr />
 
     <article class="p-3">
-
       <div class="flex pl-2 pr-2">
-        <span class="mr-auto"><strong>Status:</strong> </span>{{ character.status }}
+        <span class="mr-auto"><strong>Status:</strong> </span
+        >{{ character.status }}
       </div>
-      <hr>
+      <hr />
       <div class="flex pl-2 pr-2">
-        <span class="mr-auto"><strong>Species:</strong> </span>{{ character.species }}
+        <span class="mr-auto"><strong>Species:</strong> </span
+        >{{ character.species }}
       </div>
-      <hr>
+      <hr />
       <div class="flex pl-2 pr-2">
         <span class="mr-auto"><strong>Type:</strong> </span>{{ character.type }}
       </div>
-      <hr>
+      <hr />
       <div class="flex pl-2 pr-2">
-        <span class="mr-auto"><strong>Gender:</strong> </span>{{ character.gender }}
+        <span class="mr-auto"><strong>Gender:</strong> </span
+        >{{ character.gender }}
       </div>
-      <hr>
+      <hr />
       <div class="flex pl-2 pr-2">
-        <span class="mr-auto"><strong>Origin:</strong> </span>{{ character.origin.name }}
+        <span class="mr-auto"><strong>Origin:</strong> </span
+        >{{ character.origin.name }}
       </div>
-      <hr>
+      <hr />
       <div class="flex pl-2 pr-2">
-        <span class="mr-auto"><strong>Location:</strong> </span>{{ character.location.name }}
+        <span class="mr-auto"><strong>Location:</strong> </span
+        >{{ character.location.name }}
       </div>
-      <hr>
+      <hr />
       <div class="flex pl-2 pr-2">
-        <span class="mr-auto"><strong>Created at:</strong></span>{{ character.created }}
+        <span class="mr-auto"><strong>Created at:</strong></span
+        >{{ character.created | date }}
       </div>
-      <hr>
+      <hr />
       <div class="flex justify-content-center mt-4">
-        <app-generate-button (onClick)="generateCharacter()"></app-generate-button>
+        <app-generate-button
+          (onClick)="generateCharacter()"
+        ></app-generate-button>
       </div>
     </article>
   </section>

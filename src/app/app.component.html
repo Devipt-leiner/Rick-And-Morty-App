@@ -1,44 +1,15 @@
 <app-header></app-header>
-<br>
-<main class="grid p-3 mt-6">
-  <div class="col-9 lg:col-12">
-    <button
-      type="button"
-      pButton
-      icon="pi pi-history"
-      label="Historial"
-      (click)="visibleSidebar = true"
-    ></button>
-    <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
-      <h3>Historial de personajes</h3>
-      <button
-        *ngFor="let character of characters"
-        pButton
-        pRipple
-        type="button"
-        [label]="character.name"
-        class="p-button-outlined mr-1 mb-1"
-        (click)="search(character)"
-      ></button>
-    </p-sidebar>
-  </div>
-  <div class="col-12">
-    <div
-      *ngIf="notCharacters"
-      id="div"
-      class="flex flex-column align-items-center justify-content-center"
-    >
-      <span>No se ha cargado ningún personaje</span>
-      <br />
-      <br>
-      <app-generate-button
-        (onClick)="getCharacter($event)"
-      ></app-generate-button>
-    </div>
+<br />
+<br />
+<br />
+<br />
 
-    <app-character
-      *ngIf="!notCharacters"
-      (characterGenerated)="updateHistory($event)"
-    ></app-character>
+<p-toolbar>
+  <div class="flex-wrap gap-2 p-toolbar-group-left">
+    <button pButton routerLink="character" class="p-button-outlined" label="Personaje aleatorio" icon="pi pi-user"></button>
+    <button pButton routerLink="characters" class="p-button-outlined" label="Personajes" icon="pi pi-users"></button>
   </div>
-</main>
+  <div class="p-toolbar-group-right"></div>
+</p-toolbar>
+<br>
+<router-outlet></router-outlet>

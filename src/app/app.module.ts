@@ -12,12 +12,16 @@ import { CharacterComponent } from './components/character/character.component';
 import { GenerateButtonComponent } from './components/generate-button/generate-button.component';
 import { CharacterService } from './core/services/character.service';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CharactersComponent } from './components/characters/characters.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    CardComponent,
     CharacterComponent,
+    CharactersComponent,
     GenerateButtonComponent,
     LoadingComponent
   ],

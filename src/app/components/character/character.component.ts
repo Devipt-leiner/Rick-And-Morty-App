@@ -11,16 +11,22 @@ import { CHARACTERS } from "../../graphql/graphql.queries";
 })
 export class CharacterComponent implements OnInit {
 
-  @Output() characterGenerated = new EventEmitter<Character>();
-
   characters: Character[] = [];
+  charactersHistory: Character[] = [];
   character!: Character;
   loading: boolean = true;
   error: any;
+  visibleSidebar!: boolean;
+  notCharacter: boolean = true;
 
-  constructor(private apollo: Apollo, private characterService: CharacterService) { }
+  constructor(private apollo: Apollo) { }
 
   ngOnInit() {
+  }
+
+  getCharacter() {
+    this.notCharacter = false;
+
     this.apollo.watchQuery({
       query: CHARACTERS,
     })
@@ -30,16 +36,17 @@ export class CharacterComponent implements OnInit {
       this.error = result.error;
       this.generateCharacter();
     });
+  }
 
-    this.characterService.customCharacter.subscribe(character => {
-      this.character = character;
-    });
+  search(character: Character) {
+    this.visibleSidebar = false;
+    this.character = character;
   }
 
   generateCharacter () {
     let randomData = Math.floor(Math.random()*this.characters.length);
     this.character = this.characters[randomData];
-    this.characterGenerated.emit(this.character);
+    this.charactersHistory.push(this.character)
   }
 
 }
