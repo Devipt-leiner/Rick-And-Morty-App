@@ -56,3 +56,7 @@
   -webkit-transform: rotateX(30deg) rotateZ(0);
           transform: rotateX(30deg) rotateZ(0);
  }
+
+ .btn:active {
+  transform: scale(0.9);
+ }

@@ -1,17 +1,43 @@
 <app-header></app-header>
 
 <main class="grid p-3">
-  <div class="col-9 lg:col-2">
-    <button type="button" pButton icon="pi pi-history" label="Historial" (click)="menu.toggle($event)"></button>
-    <p-menu #menu [popup]="true" [model]="items"></p-menu>
+  <div class="col-9 lg:col-12">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-history"
+      label="Historial"
+      (click)="visibleSidebar = true"
+    ></button>
+    <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+      <h3>Historial de personajes</h3>
+      <button
+        *ngFor="let character of characters"
+        pButton
+        pRipple
+        type="button"
+        [label]="character.name"
+        class="p-button-outlined mr-1 mb-1"
+        (click)="search(character)"
+      ></button>
+    </p-sidebar>
   </div>
-  <div class="col-9 lg:col-10">
-    <div *ngIf="notCharacters" id="div" class="flex flex-column align-items-center justify-content-center">
+  <div class="col-12">
+    <div
+      *ngIf="notCharacters"
+      id="div"
+      class="flex flex-column align-items-center justify-content-center"
+    >
       <span>No se ha cargado ningún personaje</span>
-      <br>
-      <app-generate-button (onClick)="getCharacter($event)"></app-generate-button>
+      <br />
+      <app-generate-button
+        (onClick)="getCharacter($event)"
+      ></app-generate-button>
     </div>
 
-    <app-character *ngIf="!notCharacters"></app-character>
+    <app-character
+      *ngIf="!notCharacters"
+      (characterGenerated)="updateHistory($event)"
+    ></app-character>
   </div>
 </main>

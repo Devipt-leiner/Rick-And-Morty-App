@@ -5,18 +5,21 @@ import {ButtonModule} from 'primeng/button';
 import { ImageModule } from 'primeng/image';
 import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
+import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     ButtonModule,
-    MenuModule
+    MenuModule,
+    SidebarModule
   ],
   exports: [
     ButtonModule,
     ImageModule,
-    MenuModule
+    MenuModule,
+    SidebarModule
   ],
 })
 export class PrimeNgModule { }
