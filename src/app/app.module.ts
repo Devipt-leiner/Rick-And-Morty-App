@@ -10,13 +10,16 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterComponent } from './components/character/character.component';
 import { GenerateButtonComponent } from './components/generate-button/generate-button.component';
+import { CharacterService } from './core/services/character.service';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CharacterComponent,
-    GenerateButtonComponent
+    GenerateButtonComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,9 @@ import { GenerateButtonComponent } from './components/generate-button/generate-b
     GraphQLModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CharacterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

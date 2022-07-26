@@ -1,6 +1,9 @@
-<main class="grid">
+<div *ngIf="loading" class="flex align-content-center align-items-center">
+  <app-loading></app-loading>
+</div>
+<main *ngIf="!loading" class="grid">
   <p-image
-    class="col-12 lg:col-fixed"
+    class="col-12 lg:col-fixed animate__animated animate__fadeInLeft"
     style="width: 400px"
     [src]="character.image"
     alt="Image"
@@ -8,15 +11,15 @@
     [preview]="true"
   ></p-image>
 
-  <section class="sm:col-12 lg:col-8">
+  <section class="sm:col-12 lg:col-8 animate__animated animate__fadeInLeft">
     <header class="pl-2 pr-2 pt-2">
-      <strong>{{ character.name }}</strong>
+      <strong id="name">{{ character.name }}</strong>
       <pre>CHARACTER ID: {{ character.id }}</pre>
     </header>
 
     <hr>
 
-    <div class="p-3">
+    <article class="p-3">
 
       <div class="flex pl-2 pr-2">
         <span class="mr-auto"><strong>Status:</strong> </span>{{ character.status }}
@@ -49,6 +52,6 @@
       <div class="flex justify-content-center">
         <app-generate-button (onClick)="generateCharacter()"></app-generate-button>
       </div>
-    </div>
+    </article>
   </section>
 </main>

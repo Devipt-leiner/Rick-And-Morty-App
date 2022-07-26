@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { Character } from './interfaces/character.interface';
+import { Character } from './core/interfaces/character.interface';
+import { CharacterService } from './core/services/character.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,11 +13,15 @@ export class AppComponent {
   title = 'rick-and-morty-app';
 
   characters: Character[] = [];
+  character!: Character;
   items!: MenuItem[];
   notCharacters: boolean = true;
   visibleSidebar!: boolean;
 
+  constructor(private characterService: CharacterService) {}
+
   ngOnInit() {
+    this.characterService.customCharacter.subscribe(value => {});
   }
 
   updateHistory(character: Character) {
@@ -28,5 +34,8 @@ export class AppComponent {
 
   search(character: Character) {
     this.visibleSidebar = false;
+    this.character = character;
+
+    this.characterService.changeCharacter(character);
   }
 }
