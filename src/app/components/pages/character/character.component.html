@@ -13,7 +13,7 @@
   <app-loading></app-loading>
 </span>
 
-<main *ngIf="!notCharacter" class="grid p-3 lg:ml-5">
+<main *ngIf="!notCharacter" class="grid p-2 lg:ml-2">
   <div class="col-12">
     <button
       class="flex ml-2"
@@ -36,17 +36,18 @@
       ></p-chip>
     </p-sidebar>
   </div>
+
   <p-image
     *ngIf="!loading"
-    class="sm:col-12 lg:col-fixed mb-4 ml-2"
-    [style]="{'width': '400px'}"
+    class="sm:col-12 lg:col-4 mb-4 ml-0"
+    [style]="{'width': '350px'}"
     [src]="character.image"
     alt="Image"
     width="350"
     [preview]="true"
   ></p-image>
 
-  <section *ngIf="!loading" class="sm:col-12 lg:col-8">
+  <section *ngIf="!loading" class="sm:col-12 ml-4 lg:col-7">
     <header class="pl-2 pr-2 pt-3">
       <strong id="name">{{ character.name }}</strong>
       <pre>CHARACTER ID: {{ character.id }}</pre>
@@ -54,7 +55,7 @@
 
     <hr />
 
-    <article class="p-3">
+    <article class="sm:col-12">
       <div class="flex pl-2 pr-2">
         <span class="mr-auto"><strong>Status:</strong> </span
         >{{ character.status }}
