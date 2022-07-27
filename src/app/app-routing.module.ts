@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CharacterComponent } from './components/character/character.component';
-import { CharactersComponent } from './components/characters/characters.component';
+import { CharacterComponent } from './components/pages/character/character.component';
+import { CharactersComponent } from './components/pages/characters/characters.component';
 
-const routes: Routes = [
-  {
-    path: 'home',
-    component: AppComponent,
-  },
+export const routes: Routes = [
   {
     path: 'character',
-    component: CharacterComponent
+    component: CharacterComponent,
   },
   {
     path: 'characters',
@@ -19,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'character'
   }
 ];
 

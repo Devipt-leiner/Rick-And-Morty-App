@@ -1,5 +1,7 @@
 <main *ngIf="notCharacter" class="grid p-3">
-  <div class="flex justify-content-center align-items-center flex-column col-12">
+  <div
+    class="flex justify-content-center align-items-center flex-column col-12"
+  >
     <span id="span">No se ha cargado ningún personaje</span>
     <br />
     <br />
@@ -11,9 +13,11 @@
   <app-loading></app-loading>
 </span>
 
-<main *ngIf="!notCharacter" class="grid p-3">
+<main *ngIf="!notCharacter" class="grid p-3 lg:ml-5">
   <div class="col-12">
-    <button *ngIf="!loading"
+    <button
+      class="flex ml-2"
+      *ngIf="!loading"
       type="button"
       pButton
       icon="pi pi-history"
@@ -22,20 +26,20 @@
     ></button>
     <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
       <h3>Historial de personajes</h3>
-      <button
+      <p-chip
         *ngFor="let characterHistory of charactersHistory"
-        pButton
-        pRipple
-        type="button"
-        [label]="character.name"
-        class="p-button-outlined mr-1 mb-1"
-        (click)="search(character)"
-      ></button>
+        id="chip"
+        [label]="characterHistory.name"
+        [image]="characterHistory.image"
+        (click)="search(characterHistory)"
+        styleClass="mr-2"
+      ></p-chip>
     </p-sidebar>
   </div>
-  <p-image *ngIf="!loading"
+  <p-image
+    *ngIf="!loading"
     class="sm:col-12 lg:col-fixed mb-4 ml-2"
-    style="width: 400px"
+    [style]="{'width': '400px'}"
     [src]="character.image"
     alt="Image"
     width="350"

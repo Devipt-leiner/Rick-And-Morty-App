@@ -12,9 +12,22 @@ import { CharacterService } from './core/services/character.service';
 export class AppComponent {
   title = 'rick-and-morty-app';
 
+  character: boolean = true;
+  characters: boolean = false;
+
   constructor(private characterService: CharacterService) {}
 
   ngOnInit() {
     this.characterService.customCharacter.subscribe((value) => {});
+  }
+
+  characterRoute() {
+    this.character = true;
+    this.characters = false;
+  }
+
+  charactersRoute() {
+    this.character = false;
+    this.characters = true;
   }
 }

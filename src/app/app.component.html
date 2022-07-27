@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <br />
 <br />
 <br />
@@ -6,10 +7,28 @@
 
 <p-toolbar>
   <div class="flex-wrap gap-2 p-toolbar-group-left">
-    <button pButton routerLink="character" class="p-button-outlined" label="Personaje aleatorio" icon="pi pi-user"></button>
-    <button pButton routerLink="characters" class="p-button-outlined" label="Personajes" icon="pi pi-users"></button>
+    <button
+      pButton
+      routerLinkActive="active"
+      routerLink="character"
+      (click)="characterRoute()"
+      [class]="character ? 'p-button-primary' : 'p-button-outlined'"
+      label="Personaje aleatorio"
+      icon="pi pi-user"
+    ></button>
+    <button
+      pButton
+      routerLinkActive="active"
+      routerLink="characters"
+      (click)="charactersRoute()"
+      [class]="characters ? 'p-button-primary' : 'p-button-outlined'"
+      label="Personajes"
+      icon="pi pi-users"
+    ></button>
   </div>
   <div class="p-toolbar-group-right"></div>
 </p-toolbar>
-<br>
+
+<br />
+
 <router-outlet></router-outlet>

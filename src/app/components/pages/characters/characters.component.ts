@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { Character } from 'src/app/core/interfaces/character.interface';
-import { CHARACTERS } from "../../graphql/graphql.queries";
+import { CHARACTERS } from "../../../graphql/graphql.queries";
 
 @Component({
   selector: 'app-characters',

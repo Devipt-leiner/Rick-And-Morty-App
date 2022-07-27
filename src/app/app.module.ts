@@ -5,15 +5,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
-import { HeaderComponent } from './components/header/header.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
-import { CharacterComponent } from './components/character/character.component';
-import { GenerateButtonComponent } from './components/generate-button/generate-button.component';
+import { CardComponent } from './components/resources/card/card.component';
+import { CharacterComponent } from './components/pages/character/character.component';
+import { CharactersComponent } from './components/pages/characters/characters.component';
 import { CharacterService } from './core/services/character.service';
-import { LoadingComponent } from './components/loading/loading.component';
-import { CharactersComponent } from './components/characters/characters.component';
-import { CardComponent } from './components/card/card.component';
+import { GenerateButtonComponent } from './components/resources/generate-button/generate-button.component';
+import { HeaderComponent } from './components/resources/header/header.component';
+import { LoadingComponent } from './components/resources/loading/loading.component';
 
 @NgModule({
   declarations: [
