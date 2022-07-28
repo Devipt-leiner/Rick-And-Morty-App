@@ -84,6 +84,7 @@
   -webkit-transform: translateY(5%);
       -ms-transform: translateY(5%);
           transform: translateY(5%);
+          cursor: pointer;
  }
 
  .card:hover:before {

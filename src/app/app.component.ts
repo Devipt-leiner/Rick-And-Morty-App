@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { Character } from './core/interfaces/character.interface';
 import { CharacterService } from './core/services/character.service';
@@ -11,14 +11,37 @@ import { CharacterService } from './core/services/character.service';
 })
 export class AppComponent {
   title = 'rick-and-morty-app';
-
+  
   character: boolean = true;
   characters: boolean = false;
 
-  constructor(private characterService: CharacterService) {}
+  items!: MenuItem[];
+
+  constructor(
+    private characterService: CharacterService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.characterService.customCharacter.subscribe((value) => {});
+
+    this.items = [
+      {
+        label: 'Personaje aleatorio',
+        icon: 'pi pi-fw pi-user',
+        command: (event) => {
+          this.router.navigateByUrl('/character');
+        },
+
+      },
+      {
+        label: 'Personajes',
+        icon: 'pi pi-fw pi-users',
+        command: (event) => {
+          this.router.navigateByUrl('/characters');
+        },
+      },
+    ];
   }
 
   characterRoute() {

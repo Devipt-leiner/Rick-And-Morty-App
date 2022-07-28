@@ -9,10 +9,25 @@ import { Character } from 'src/app/core/interfaces/character.interface';
 export class CardComponent implements OnInit {
 
   @Input() characters: Character[] = []
+  displayModal: boolean = false;
+
+  characterImage: string = '';
+  characterName: string = '';
+  characterSpecie: string = '';
+  characterOrigin: string = '';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showCharacter(character: Character) {
+    this.displayModal = true;
+
+    this.characterImage = character.image;
+    this.characterName = character.name;
+    this.characterSpecie = character.species;
+    this.characterOrigin = character.origin.name;
   }
 
 }

@@ -1,11 +1,41 @@
 <div class="grid gap-5 justify-content-center">
-  <div *ngFor="let character of characters" class="card">
+  <div
+    *ngFor="let character of characters"
+    class="card"
+    (click)="showCharacter(character)"
+  >
     <div class="card-img flex justify-content-center">
-      <img [src]="character.image" width="190" alt="">
+      <img [src]="character.image" width="190" alt="" />
     </div>
-      <div class="card-info">
-        <p class="text-title">{{ character.name }}</p>
-        <p class="text-body">{{ character.origin.name }}</p>
-      </div>
+    <div class="card-info">
+      <p class="text-title">{{ character.name }}</p>
+      <p class="text-body">{{ character.origin.name }}</p>
     </div>
+  </div>
 </div>
+
+<p-dialog
+  class="flex justify-content-center"
+  header="Character Info"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="true"
+  [resizable]="false"
+  [breakpoints]="{ '425px': '90vw' }"
+  [style]="{ width: 'auto' }"
+>
+  <p-card
+    header="{{ characterName }}"
+    subheader="Origin: {{ characterOrigin }}"
+    [style]="{ width: '360px' }"
+    styleClass="p-card-shadow"
+  >
+    <ng-template pTemplate="header">
+      <img alt="Card" [src]="characterImage" />
+    </ng-template>
+
+    <span>Specie: {{ characterSpecie }}</span>
+
+  </p-card>
+</p-dialog>

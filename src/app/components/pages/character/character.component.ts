@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { Character } from 'src/app/core/interfaces/character.interface';
-import { CharacterService } from 'src/app/core/services/character.service';
 import { CHARACTERS } from "../../../graphql/graphql.queries";
 
 @Component({

@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './components/resources/card/card.component';
 import { CharacterComponent } from './components/pages/character/character.component';
 import { CharactersComponent } from './components/pages/characters/characters.component';
-import { CharacterService } from './core/services/character.service';
 import { GenerateButtonComponent } from './components/resources/generate-button/generate-button.component';
 import { HeaderComponent } from './components/resources/header/header.component';
 import { LoadingComponent } from './components/resources/loading/loading.component';
@@ -21,7 +20,7 @@ fdescribe('AppComponente Routing Example', () => {
   let router: Router;
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let DebugElement: DebugElement;
+  let debugElement: DebugElement;
   let Location: Location;
 
   beforeEach(async() => {
@@ -34,12 +33,28 @@ fdescribe('AppComponente Routing Example', () => {
         CardComponent,
         CharacterComponent,
         CharactersComponent,
-        CharacterService,
         GenerateButtonComponent,
         HeaderComponent,
         LoadingComponent
       ]
     });
   });
+
+  beforeEach(() => {
+    router = TestBed.get(Router);
+    location = TestBed.get(Location);
+
+    fixture = TestBed.createComponent(AppComponent);
+    debugElement = fixture.debugElement;
+    router.initialNavigation();
+  });
+
+  it('Should test redirection to default path (async)', async(() => {
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      expect(Location.path()).toBe('/character');
+    });
+  }))
 
 });
