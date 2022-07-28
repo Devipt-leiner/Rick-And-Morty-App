@@ -5,17 +5,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   templateUrl: './generate-button.component.html',
   styleUrls: ['./generate-button.component.css']
 })
-export class GenerateButtonComponent implements OnInit {
+export class GenerateButtonComponent {
 
-  @Output() onClick = new EventEmitter<boolean>();
+  @Output() isClick = new EventEmitter<boolean>();
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
   isClicked(evt: any) {
-    this.onClick.emit(true)
+    this.isClick.emit(true)
   }
 
 }

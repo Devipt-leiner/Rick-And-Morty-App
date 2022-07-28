@@ -6,7 +6,7 @@ import { Character } from 'src/app/core/interfaces/character.interface';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
 
   @Input() characters: Character[] = []
   displayModal: boolean = false;
@@ -17,9 +17,6 @@ export class CardComponent implements OnInit {
   characterOrigin: string = '';
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   showCharacter(character: Character) {
     this.displayModal = true;

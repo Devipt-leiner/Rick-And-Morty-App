@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { Character } from './core/interfaces/character.interface';
@@ -9,9 +9,9 @@ import { CharacterService } from './core/services/character.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'rick-and-morty-app';
-  
+
   character: boolean = true;
   characters: boolean = false;
 

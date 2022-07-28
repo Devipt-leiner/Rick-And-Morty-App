@@ -8,7 +8,7 @@ import { CHARACTERS } from "../../../graphql/graphql.queries";
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.css']
 })
-export class CharacterComponent implements OnInit {
+export class CharacterComponent {
 
   characters: Character[] = [];
   charactersHistory: Character[] = [];
@@ -19,9 +19,6 @@ export class CharacterComponent implements OnInit {
   notCharacter: boolean = true;
 
   constructor(private apollo: Apollo) { }
-
-  ngOnInit() {
-  }
 
   getCharacter() {
     this.notCharacter = false;
