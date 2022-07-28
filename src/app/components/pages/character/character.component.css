@@ -1,22 +1,23 @@
-main {
-  z-index: 0;
-}
-
-section {
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 1rem;
-}
-
-#name {
-  background-color: var(--primary-color);
-  padding: 5px;
-  border-radius: 5px;
-  color: white;
-}
-
 @media screen and (min-width: 320px) {
-  .img {
+  main {
+    z-index: 0;
+  }
+
+  section {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 1rem;
+    width: 300px;
+  }
+
+  #name {
+    background-color: var(--primary-color);
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .imgSize {
     width: 100px;
   }
 
@@ -34,5 +35,17 @@ section {
 
   #chip {
     cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  section {
+    width: 800px;
   }
 }
