@@ -12,7 +12,7 @@ import { CHARACTERS } from '../../../graphql/graphql.queries';
 export class CharactersComponent implements OnInit {
   characters: Character[] = [];
   character!: Character;
-  currentPage: number = 1;
+  currentPage: number = 0;
   error: any;
   loading: boolean = true;
 
@@ -59,13 +59,13 @@ export class CharactersComponent implements OnInit {
   }
 
   previous() {
-    this.currentPage > 0 ? this.currentPage-- : (this.currentPage = 0);
+    this.currentPage === 0 ? this.currentPage = 42 : this.currentPage--;
     let page = this.currentPage;
     this.getCharacters(page);
   }
 
   next() {
-    this.currentPage++;
+    this.currentPage === 42 ? this.currentPage = 1 : this.currentPage++;
     let page = this.currentPage;
     this.getCharacters(page);
   }
