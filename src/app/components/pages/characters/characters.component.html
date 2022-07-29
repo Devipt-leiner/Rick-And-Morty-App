@@ -3,5 +3,41 @@
 </div>
 
 <div *ngIf="!loading" class="flex flex-wrap">
+  <div class="grid justify-content-center mb-3 ml-2 col-12 align-items-center gap-2">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-chevron-left"
+      class="p-button-rounded p-button-text"
+      (click)="previous()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-chevron-right"
+      class="p-button-rounded p-button-primary p-button-text"
+      (click)="next()"
+    ></button>
+  </div>
   <app-card [characters]="characters"></app-card>
+  <div class="grid justify-content-center mb-3 ml-2 col-12 align-items-center gap-2">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-chevron-left"
+      class="p-button-rounded p-button-text"
+      (click)="previous()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-chevron-right"
+      class="p-button-rounded p-button-primary p-button-text"
+      (click)="next()"
+    ></button>
+  </div>
 </div>
